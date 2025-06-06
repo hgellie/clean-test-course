@@ -19,13 +19,13 @@ jobs:
       - name: '**PLACEHOLDER** Deploy to Elastic Beanstalk'
         run: echo Placeholder for Deployment
 
-function_test:
-  runs-on: ubuntu-latest
-  defaults:
-    run:
-      working-directory: frontend
-  steps:
-    - uses: actions/checkout@v4
-      run: npm install
-      name: Run functional tests
-      run: npm test
+  function_test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - uses: actions/checkout@v4
+        run: npm install
+        name: Run functional tests
+        run: npm test
