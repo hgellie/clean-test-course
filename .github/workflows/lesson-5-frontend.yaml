@@ -15,6 +15,14 @@ jobs:
 #      - run: npm install
 #      - name: Run functional tests
 #        run: npm test -- --coverage --watchAll=false
+  security_test:
+    needs: [deploy]
+    runs-on: ubuntu-latest
+    steps:
+      - name: ZAP Baseline Scan
+        uses: zaproxy/action-baseline@v0.14.0
+        with: 
+          target: 'https://hangryhippos.quantic.host'
   deploy:
 #    needs: [function_test] (normally you'd not deploy until functional tests were complete)
     runs-on: ubuntu-latest
